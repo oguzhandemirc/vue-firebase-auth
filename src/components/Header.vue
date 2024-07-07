@@ -1,9 +1,9 @@
 <template>
   <div class="container">
     <header class="d-flex py-3 border-bottom mb-5">
-      <a to="/" class="me-auto text-decoration-none text-dark">
+      <router-link to="/" class="me-auto text-decoration-none text-dark">
         <span class="fs-3">Oğuzhan Demirci</span>
-      </a>
+      </router-link>
       <ul class="nav nav-pills">
         <li class="nav-item">
           <router-link to="/" class="nav-link">Yazılarım</router-link>
