@@ -8,6 +8,9 @@
             {{ note.desc }}
           </p>
         </div>
+        <div class="card-footer">
+          <router-link :to="`/UpdateArticle/${note.id}`">yazıyı güncelle</router-link>
+        </div>
       </div>
     </div>
   </div>

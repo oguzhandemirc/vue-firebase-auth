@@ -25,6 +25,9 @@
 import { DB } from "@/firebase/configs.js";
 import { collection, addDoc } from "firebase/firestore";
 import { reactive } from "vue";
+import { useRouter } from "vue-router"; // router'a yönlendirme yapmak için
+
+const router = useRouter();
 
 const formData = reactive({
   title: "",
@@ -42,5 +45,6 @@ const submitForm = async () => {
 
   formData.title = "";
   formData.desc = "";
+  router.push("/"); // anasayfaya yönlendirme yapmak için
 };
 </script>
