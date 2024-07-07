@@ -16,14 +16,17 @@
             v-model="formData.desc"
           ></textarea>
         </div>
-        <button type="submit" class="btn btn-primary">Güncelle</button>
+        <button type="submit" class="btn btn-primary ">Güncelle</button>
+        <button @click="deleteNote" type="submit" class="btn btn-danger ms-2">
+          Sil
+        </button>
       </form>
     </div>
   </div>
 </template>
 <script setup>
 import { DB } from "@/firebase/configs.js";
-import { doc, getDoc, updateDoc } from "firebase/firestore";
+import { doc, getDoc, updateDoc,deleteDoc } from "firebase/firestore";
 import { reactive } from "vue";
 import { useRouter, useRoute } from "vue-router"; // router'a yönlendirme yapmak için useRouter. Route parametrelerini almak için useRoute
 
@@ -43,7 +46,6 @@ getDoc(docRef)
     formData.desc = e.data().desc;
   })
   .catch((error) => {
-    window.alert("Bir hata oluştu");
     console.error(error);
   });
 
@@ -56,8 +58,18 @@ const submitForm = async () => {
     });
     router.push("/");
   } catch (error) {
-    window.alert("Bir hata oluştu");
     console.error(error);
   }
+};
+
+const deleteNote = async () => {
+  try {
+    const docRef = (doc(DB, "notes", route.params.id));
+    await deleteDoc(docRef);
+    router.push("/");
+
+} catch (error) {
+    console.log(error);
+}
 };
 </script>
