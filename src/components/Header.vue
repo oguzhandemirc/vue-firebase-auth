@@ -6,13 +6,20 @@
       </a>
       <ul class="nav nav-pills">
         <li class="nav-item">
-          <a to="/" class="nav-link">Yazılarım</a>
+          <router-link to="/" class="nav-link">Yazılarım</router-link>
         </li>
         <li class="nav-item">
-          <a href="#" class="nav-link">Çıkış Yap</a>
+          <router-link to="/register" class="nav-link"
+            >Kaydol</router-link
+          >
         </li>
         <li class="nav-item">
-          <a href="#" class="nav-link"> Yazı Ekle</a>
+          <router-link to="/addarticle" class="nav-link">
+            Yazı Ekle</router-link
+          >
+        </li>
+        <li class="nav-item">
+          <router-link to="#" class="nav-link">Çıkış Yap</router-link>
         </li>
       </ul>
     </header>
